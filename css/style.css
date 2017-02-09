@@ -1,0 +1,113 @@
+ @import url('https://fonts.googleapis.com/css?family=Raleway');
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.texto{
+	font-family: 'Raleway', sans-serif;
+}
+
+p{
+	font-size: 15px;
+}
+
+
+/* Header */
+.header{
+	background-image: url("../imgs/imgFullSize.jpg");
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: 60% 60%;
+	background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-webkit-background-size: cover;
+}
+
+.header-overlay{
+	background-color: rgba(31, 31, 31, 0.75);
+}
+
+.logo{
+	margin-top: 10px;
+	padding-bottom: 50px;
+}
+
+.header-text h1{
+	color: #fff;
+	font-size: 35px;
+	font-weight: 300;
+	line-height: 45px;
+	padding-top: 30px;
+	text-transform: uppercase; 
+}
+.header-text p{
+	color: #fff;
+	font-size: 17px;
+	font-weight: 300;
+	line-height: 28px;
+}
+
+.header-btns{
+	margin-bottom: 50px;
+	margin-top: 93px;
+}
+
+#download,
+#download:focus,
+#download:active,
+#download:visited
+{
+	background: transparent;
+	border-color: #129CF3;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
+	font-size: 22px;
+	text-transform: uppercase;
+	border-radius: 3px;
+	transition: all 1s;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-o-transition: all 1s;
+}
+
+#download:hover{
+	background-color: #129cf3;
+	color: #fff;
+}
+
+#tour,
+#tour:focus,
+#tour:active,
+#tour:visited
+{
+	color: #A9ADB9;
+	margin-left: 20px;
+	font-size: 22px;
+	font-weight: 500;
+	text-transform: uppercase;
+	background: transparent;
+	transition: all 1s;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-o-transition: all 1s;
+}
+
+#tour:hover{
+	color: #fff;
+}
+#tour i{
+	font-size: 20px;
+	padding-left: 5px;
+	color: #129cf3;
+}
+
+
+.header-mac img{
+	width: 100%;
+}
