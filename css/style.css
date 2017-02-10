@@ -101,6 +101,7 @@ p{
 #tour:hover{
 	color: #fff;
 }
+
 #tour i{
 	font-size: 20px;
 	padding-left: 5px;
@@ -110,4 +111,64 @@ p{
 
 .header-mac img{
 	width: 100%;
+}
+
+/*About us*/
+
+.about-tittle{
+	color: #333;
+	text-align: center;
+	padding-top: 90px;
+	padding-bottom: 58px;
+
+}
+.about-tittle h2{
+	position: relative;
+	font-size: 38px;
+	font-weight: 48px;
+	text-transform: uppercase;
+}
+
+.about-tittle h2:after{
+	content: "";
+	position: absolute;
+	left: 50%;
+	bottom: -28px;
+	width: 138px;
+	height: 1px;
+	background-color: #129cf3;
+	margin-left: -68px;
+}
+
+
+.about-tittle p{
+	padding-top: 90px;
+	padding-bottom: 58px;
+	font-size: 17px;
+	font-weight: 300;
+	line-height: 28px;
+}
+
+/*Meet Us*/
+.meet-us{
+	background-image: url("../imgs/baner-about-us.png");
+	background-position: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-webkit-background-size: cover;
+}
+
+.about-overlay{
+	background-color: rgba(31, 31, 31, 0.75);
+}
+
+.carousel-img{
+	padding-top: 20px;
+	padding-bottom: 180px;
+}
+
+.carousel-caption{
+	padding-top: 20px;
 }
