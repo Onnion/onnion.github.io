@@ -115,21 +115,21 @@ p{
 
 /*About us*/
 
-.about-tittle{
+.section-tittle{
 	color: #333;
 	text-align: center;
 	padding-top: 90px;
 	padding-bottom: 58px;
 
 }
-.about-tittle h2{
+.section-tittle h2{
 	position: relative;
 	font-size: 38px;
 	font-weight: 48px;
 	text-transform: uppercase;
 }
 
-.about-tittle h2:after{
+.section-tittle h2:after{
 	content: "";
 	position: absolute;
 	left: 50%;
@@ -141,7 +141,7 @@ p{
 }
 
 
-.about-tittle p{
+.section-tittle p{
 	padding-top: 90px;
 	padding-bottom: 58px;
 	font-size: 17px;
@@ -204,4 +204,117 @@ p{
 	font-size: 18px;
 	line-height: 27px;
 	padding-top: 10px;
+}
+
+/*Contact Us*/
+.contact-us-form .form-control{
+
+	display: block;
+	width: 100%;
+	height: 58px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 21px;
+	color: #555;
+	background-color: transparent;
+	border: 1px solid #aeaeae;
+	border-radius: 3px;
+	margin-bottom: 15px;
+	opacity: 0.8;
+	outline: 0px: !important;
+	transition: all 1s;
+	-moz-transition: all 1s;
+	-o-transition: all 1s;
+	-webkit-transition: all 1s;
+}
+
+#message{
+	height: 150px;
+	resize: none;
+}
+
+#submit-btn,
+#submit-btn:focus,
+#submit-btn:active,
+#submit-btn:visited
+{
+	background: transparent;
+	border: 1px solid #129CF3;
+	border-radius: 3px;
+	width: 100%;
+	height: 50px;	
+	text-transform: uppercase;
+	font-size: 18px;
+	color: #129CF3;
+	transition: all 1s;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-o-transition: all 1s;
+}
+
+#submit-btn:hover{
+	background:#129CF3;
+	color: #fff;
+	border-color: #129CF3;
+}
+
+.social-icons{
+	padding-top: 50px;
+	padding-bottom: 70px;
+}
+
+.social-icons ul{
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+.social-icons ul li{
+	list-style: none;
+	display: inline;
+	padding-left: 10px;
+}
+
+.social-icons ul li a{
+	text-decoration: none;
+	display: inline-block;
+	text-align: center;
+	border: 1px solid #9d9d9d;
+	border-radius: 3px;
+	width: 45px;
+	height: 45px;
+	line-height: 50px;
+	color: #9d9d9d;
+}
+
+.social-icons ul li a:hover{
+	background-color: #129CF3;
+	border: 1px solid #129CF3;
+	color: #fff;
+	transition: all 1s;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-o-transition: all 1s;
+}
+.social-icons ul li a i {
+	font-size: 25px;
+}
+
+/*Contact Us*/
+.footer{
+	background-color: #1a1a1a;
+	padding-bottom: 35px;
+	padding-top: 35px;
+	border-bottom: 3px solid #129CF3;
+}
+
+.copyright{
+	width: 50%;
+
+}
+.copyright p{
+	color: #8c8b8a;
+	font-weight: 600;
+	font-size: 15px;
+	text-transform: uppercase;
 }
