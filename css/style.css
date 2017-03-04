@@ -27,6 +27,49 @@ p{
 	-webkit-background-size: cover;
 }
 
+.header .navbar-default{
+	background-color: transparent;
+	z-index: 110;
+	border-color: #444;
+	transition: all 1s;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-o-transition: all 1s;
+}
+
+.header .navbar-default .navbar-nav > li > a {
+	color: #b5b5b5;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	font-size: 20px;
+	font-family: "Raleway","sans-serif";
+	transition: all 1s;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-o-transition: all 1s;
+}
+.header .navbar-default .navbar-toggle {
+	padding: 30px;
+}
+.header .navbar-default .navbar-nav > li > a:hover {
+	color: #129CF3;
+}
+.header .navbar-default .navbar-nav > li > a:focus{
+	color: #b5b5b5;
+}
+
+.header .navbar-default .navbar-brand{
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.header .navbar-default .navbar-nav > .active>a,
+.header .navbar-default .navbar-nav > .active>a:hover,
+.header .navbar-default .navbar-nav > .active>a:focus{
+	background-color: transparent;
+	color: #129CF3;
+}
+
 .header-overlay{
 	background-color: rgba(31, 31, 31, 0.75);
 }
@@ -44,6 +87,7 @@ p{
 	padding-top: 30px;
 	text-transform: uppercase; 
 }
+
 .header-text p{
 	color: #fff;
 	font-size: 17px;
@@ -300,6 +344,57 @@ p{
 	font-size: 25px;
 }
 
+/*partneships*/
+
+.partineships-slider{
+	background-image: url("../imgs/fundo-ds.jpg");
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: 60% 60%;
+	background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-webkit-background-size: cover;
+}
+
+.partineships-overlay{
+	background-color: rgba(0,0,0,.5);
+}
+.partineships-slider{
+	margin-top: 80px;
+}
+
+.carousel-logo{
+	padding-top: 40px;
+	padding-bottom: 280px;
+}
+
+.carousel-logo figure{
+	width: 100%;
+}
+
+.carousel-logo img{
+	margin: 0;
+}
+
+.carousel-caption h2 a{
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.carousel-caption h2 a:hover{
+	color: #843c0c;
+	transition: all 1s;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-o-transition: all 1s;
+}
+
+.partineships-partineships p{
+	color: #333;
+}
+
 /*Contact Us*/
 .footer{
 	background-color: #1a1a1a;
@@ -318,3 +413,4 @@ p{
 	font-size: 15px;
 	text-transform: uppercase;
 }
+

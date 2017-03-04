@@ -2,6 +2,7 @@
 <html lang="pt">
 
 	<head>
+
 		<!-- Meta tags -->
 		<meta charset="utf-8">
 	  	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,17 +18,200 @@
 		<link rel="icon" type="image/png" href="imgs/favicon.png">
 
 		<!-- JavaScript -->
+		
 		<script src="js/jquery.js"></script>
 	  	<script src="js/bootstrap.js"></script>
+
+	  	<!-- hiden navbar-->
+	  	<script>
+	  		$(document).ready(function(){
+   
+			    'use strict';
+			    
+			    $(window).scroll(function() {
+			        
+			        'use strict';
+			        
+			        if($(window).scrollTop() < 80 ) {
+			            
+			            $('#navbar').css ({
+			               'margin-top': '-100px',
+			                'opacity': '0'
+			                
+			            });
+
+			            $('#navbar').css({
+			                'background-color': 'rgba(59, 59 , 59, 0.2)'
+			                
+			            });
+			            
+			        } else {
+			            
+			            $('#navbar').css ({
+			               'margin-top': '0px',
+			                'opacity': '1'
+			                
+			            });       
+						
+						$('#navbar').css({
+			                'background-color': 'rgba(59, 59 , 59, 0.7)',
+			                'border-color': '#444'
+			                
+			            });
+               
+			            
+			        }      
+			        
+			    });    
+			    
+			});
+	  	</script>
+
+		<!-- autoscroll -->
+	  	<script>
+		  	$(document).ready(function(){
+		  	   $('.nav-item').click(function() {
+				    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+				      var target = $(this.hash);
+				      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+				      if (target.length) {
+				        $('html, body').animate({
+				          scrollTop: target.offset().top
+				        }, 1000);
+				        return false;
+				      }
+				    }
+				  });
+	  		});
+	  	</script>
+
+	  	<!-- highlight menu item on click -->
+	  	<script>
+	  		
+	  		$(document).ready(function() {
+    
+			    'use strict';
+			    
+			    
+			    $('.navbar-nav li a').click(function(){
+			        
+			        'use strict';
+			        
+			        $('.navbar-nav li a').parent().removeClass("active");
+			        
+			        $(this).parent().addClass("active");
+			    
+			    });
+			});
+	  	</script>
+
+		<!-- highlight menu item on scroll -->
+	  	<script >
+
+			$(document).ready(function() {
+			    
+			    'use strict';
+			    
+			    $(window).scroll( function() {
+			        
+			        'use strict';
+			        
+			        $("section").each(function()  {
+			            
+			            'use strict';
+			            
+			            var bb = $(this).attr("id");  
+			            var hei = $(this).outerHeight();
+			            var grttop = $(this).offset().top - 70;
+			            
+			            if ($(window).scrollTop() > grttop && $(window).scrollTop() < grttop + hei) {
+			             
+			                $(".navbar-nav li a[href='#" + bb + "']").parent().addClass("active");
+			           
+			            } else {
+			                $(".navbar-nav li a[href='#" + bb + "']").parent().removeClass("active");
+			                
+			            }
+			            
+			            
+			        });
+			    
+			    
+			    });
+			    
+			    
+			});
+	  	</script>
+
+	  	<script>
+	  		$(document).ready(function(){
+	  			'use strict'
+	  			sentInterval(function(){
+		  			'use strict'
+
+	  				var windowHeight = $(window).height();
+	  				var containerHeight = $('.header-container').height();
+	  				var padTop = windowHeight - containerHeight;
+
+	  				$('.header-container').css({
+	  					'padding-top': Math.round(padTop / 2) + 'px',
+	  					'padding-bottom': Math.round(padTop / 2) + 'px',
+
+	  				});
+
+
+	  			}, 10)
+
+
+	  		});
+	  	</script>
 		
 		<!-- Title -->
 		<title>Teste Responsive Design</title>
+
 	</head>
 
 	<body>
-		<!-- Header -->
-		<header class="header">
 
+		<!-- Header -->
+		<header class="header" id="HOME">
+
+			<!-- Navigation -->
+            
+            <nav id="navbar" class="navbar navbar-default navbar-fixed-top">
+               
+                <div class="container header-container">
+                  
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#loso-navbar-collapse-1" aria-expanded="false">
+
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+
+						</button>
+
+                    </div>
+
+	                <!-- Collect the nav links, forms, and other content for toggling -->
+	                <div class="collapse navbar-collapse" id="loso-navbar-collapse-1">
+
+	                	<ul class="nav navbar-nav navbar-right">
+
+	                        <li><a href="#HOME" class="nav-item">HOME</a></li>
+	                        <li><a href="#ABOUT" class="nav-item">ABOUT</a></li>
+	                        <li><a href="#CONTACT" class="nav-item">CONTACT</a></li>
+
+	              		</ul>
+	                 
+	                </div><!-- /.navbar-collapse -->
+
+            	</div><!-- /.container-fluid -->
+
+			</nav>
+            
 			<div class="header-overlay">
 
 				<div class="container">
@@ -100,8 +284,8 @@
 
 		</header>
 
-		<!-- About us -->
-		<section class="about-us">
+		<!-- About Us -->
+		<section class="about-us" id="ABOUT">
 
 			<div class="container">
 
@@ -126,8 +310,8 @@
 
 		</section>
 
-		<!-- Meet Up -->
-		<section class="meet-us">
+		<!--  About us Slider -->
+		<section class="meet-us" >
 
 			<div class="about-overlay">
 
@@ -210,8 +394,91 @@
 
 		</section>
 
-		<!-- contact us -->
-		<section class="contact-us">
+		<!-- Partineships -->
+		<section class="partineships">
+
+			<div class="container">
+			
+				<div class="row">
+					
+					<div class="col-md-12">
+					
+						<!-- About Description -->
+						<div class="section-tittle">
+
+							<h2 class="texto">Parceiros</h2>
+
+						</div>
+
+					</div>
+
+				</div>	
+
+			</div>
+
+		</section>
+
+		<!-- Partineships Slider -->
+		<section class="partineships-slider">
+
+			<div class="partineships-overlay">
+
+				<div class="container">
+
+					<div class="row">
+
+						<div class="col-md-12">
+
+							<div id="carousel-partineships" class="carousel slide" data-ride="carousel">
+
+								<ol class="carousel-indicators">
+
+									<li data-target="#carousel-partineships" data-slide-to="0" class="active"></li>
+
+								</ol>
+
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner">
+
+									<div class="item active text-center">	
+
+										<div class="carousel-logo">
+
+											<figure>
+
+												<a target="blank" href="http://dsiqueira.com.br/"><img src="imgs/logo-desiqueira.jpg" alt="Marcio"></a>
+
+											</figure>
+
+										</div>
+
+										<div class="carousel-caption">
+
+													
+											<h2><a target="blank" id="asd" href="http://dsiqueira.com.br/">De Siqueira</a></h2>
+
+											<p class="partineships-description">Empresa especializada na venda de materiais e prestação de serviços para a construção civil.</p>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+							
+						</div>
+
+					</div>	
+
+				</div> 
+
+			</div>
+
+		</section>
+
+		<!-- Contact Us -->
+		<section class="contact-us" id="CONTACT">
 
 			<div class="container">
 
@@ -295,7 +562,7 @@
 
 		</section>
 
-		<!-- contact us -->
+		<!-- Footer -->
 		<footer class="footer">
 			
 			<div class="container">
@@ -324,7 +591,6 @@
 			</div>
 
 		</footer>
-
 
 	</body>
 
