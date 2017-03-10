@@ -2,6 +2,7 @@
 <html>
 <head>
 
+
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -28,7 +29,6 @@
 
 		var texto5 = "Microlins, nascida em 1991 na cidade de Lins, no interior de São Paulo, transformou-se na maior empresa de cursos profissionalizantes do País. Presidida pelo Grupo Pearson, a rede é hoje referência no ramo de educação profissionalizante e conta com mais de 555 unidades localizadas em todo o território nacional. Segundo a Associação Brasileira de Franchising (ABF), a Microlins está entre as 15 maiores franqueadoras do país. Com mais de 24 anos de história e 17 de sistema de franquias, a Microlins já formou e encaminhou mais de 4 milhões de alunos e possui cerca de 10.000 colaboradores. Em suas unidades, a Microlins oferece mais de 40 opções de cursos profissionalizantes nas áreas de administração e negócios, atendimento, vendas, turismo, saúde e idiomas.";
 
-		
 		var text_defaul = "";
 
 		/* Selecionar texto */
@@ -66,17 +66,24 @@
 	 		}).change();
 		});
 
-		/* Corrigir*/
+		/* Corrigir */
 		$(document).ready(function(){
-			$("#review-texts").click(function(){
-				var textb = $("#example-textarea-changed").val();
-				var texta = text_defaul;
-				similar(texta,textb);
-				$(".display-result").removeClass("hidden");
-				$("#review-texts").addClass("hidden");
-				$("#example-textarea-changed").attr("disabled","yes");
-				$("html, body").animate({ scrollTop: 0 }, 600);
+			$(".btn-password").click(function() {
+				if(document.getElementById("txt-password").value == "steven"){
+					var textb = $("#example-textarea-changed").val();
+					var texta = text_defaul;
+					similar(texta,textb);
+					$(".password").addClass("hidden");
+					$(".display-result").removeClass("hidden");
+					$("#review-texts").addClass("hidden");
+					$("#example-textarea-changed").attr("disabled","yes");
+					$("html, body").animate({ scrollTop: 0 }, 600);
+					$("#restart-text").removeClass("hidden");
+				}else{
+					alert("Área restrita ao professor");
+				}
 			});
+			
 		})
 
 		/* Mostrar Seletores */
@@ -92,10 +99,8 @@
 			$("#btn-start-text").click(function(){
 				$("#start-text").addClass("hidden");
 	   			$(".containers-text").removeClass("hidden");
-	   			$(".review").removeClass("hidden");
 	   			$("#exampleSelect1").attr("disabled","yes");
-
-
+	   			$(".password").removeClass("hidden");
 			});
 		})
 
@@ -125,8 +130,8 @@
 			else{
 				$("#nota").addClass("text-warning");
 			}
-
 		}
+
 	</script>
 
 	<style>
@@ -139,6 +144,7 @@
 		}
 		.review{
 			margin-top: 20px;
+			margin-bottom: 20px;
 		}
 		#btn-start{
 			margin-bottom:20px; 
@@ -183,6 +189,22 @@
 				    	<option value="5">Microlins</option>
 				    </select>
 				</div>
+
+				<div class="col-md-6 hidden" id="restart-text">
+					<label>Vamos tentar Novamente?</label>
+					<button class="btn-primary btn-block btn">Recomeçar</button>
+				</div>
+
+				<div class="col-md-6 review hidden">
+					<button href="#HEADER" class="btn btn-block btn-primary" id="review-texts">Corrigir</button>
+
+				</div>
+
+				<div class="col-md-6 password hidden">
+					<input type="password" placeholder="senha" class="form-control" id="txt-password">
+					<button class="btn btn-block btn-primary btn-password">Corrigir</button>
+				</div>
+				
 				<div class="col-md-6" id="start-text">
 					<label>Boa sorte!</label>
 					<a href="#TEXTO"><button id="btn-start-text" href="#TEXTO" class="btn-block btn btn-primary">Começar!</button></a>
@@ -212,16 +234,6 @@
 				<div class="col-md-6">
 					<h1 class="text-center">Digite seu texto para o teste</h1>
 					<textarea class="form-control" rows="20" id="example-textarea-changed"></textarea>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="review hidden">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<button href="#HEADER" class="btn btn-block btn-primary" id="review-texts">Corrigir</button>
 				</div>
 			</div>
 		</div>
