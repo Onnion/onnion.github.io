@@ -2,12 +2,11 @@
 <html>
 <head>
 
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">	
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -67,6 +66,27 @@
 	 		}).change();
 		});
 
+		/* onLoad */
+		$(document).ready(function(){
+			document.getElementById("exampleSelect1").removeAttribute("disabled");
+		})
+
+		/* Recomeçar */
+		$(document).ready(function(){
+			$(".btn-restart").click(function() {
+				if(document.getElementById("txt-password-restart").value == "steven"){
+					$(".password").removeClass("hidden");
+					$(".display-result").addClass("hidden");
+					$("#review-texts").removeClass("hidden");
+					$("#restart-text").addClass("hidden");
+					document.getElementById("example-textarea-changed").removeAttribute("disabled");
+					document.getElementById("txt-password").value="";
+				}else{
+					alert("Área restrita ao professor");
+				}
+			});
+		})
+
 		/* Corrigir */
 		$(document).ready(function(){
 			$(".btn-password").click(function() {
@@ -84,7 +104,6 @@
 					alert("Área restrita ao professor");
 				}
 			});
-			
 		})
 
 		/* Mostrar Seletores */
@@ -93,6 +112,10 @@
 				$(".container-select").removeClass("hidden");
 				$("#btn-start").addClass("hidden");
 			});
+		})
+
+		$(document).ready(function(){
+			$('.header-tittle').addClass('animated bounceInDown')
 		})
 		
 		/* Mostrar textos */
@@ -105,6 +128,48 @@
 			});
 		})
 
+
+		/**/
+
+	      var diff_exec = document.getElementById('_corrigir'),
+	          diff_original = document.getElementById('example-textarea'),
+	          diff_copy = document.getElementById('example-textarea-changed'),
+	          diff_result = document.getElementById('diff_result'),
+	          diff_errors = document.getElementById('diff_errors'),
+	          diff_score = document.getElementById('diff_score'),
+	          diff_text = document.getElementById('diff_text');
+
+	      var diffExec = function(e) {
+	        var dmp = new diff_match_patch(),
+	          diffs = dmp.diff_main(diff_copy.value, diff_original.value),
+	          lev = dmp.diff_levenshtein(diffs);
+	        diff_errors.innerHTML = lev;
+	        diff_score.innerHTML = Math.round((10 - (lev * 0.05)) * 100) / 100;
+	        diff_text.innerHTML = dmp.diff_prettyHtml(diffs);
+	        replaceSpaces(diff_text);
+	        diff_result.style.display = 'block';
+	      };
+
+	      // Adapted from http://james.padolsey.com/javascript/find-and-replace-text-with-javascript/
+	      var replaceSpaces = function(node) {
+	        var childNodes = node.childNodes, count = childNodes.length;
+	        while (count--) {
+	          var current = childNodes[count], name = current.nodeName.toLowerCase();
+	          if (current.nodeType === 1 && (name == 'del' || name == 'ins')) {
+	            replaceSpaces(current);
+	          }
+	          if (current.nodeType === 3) {
+	            current.parentNode.innerHTML = current.data.replace(/ /g, '&nbsp;');
+	          }
+	        }
+	      };
+
+	      diff_exec.addEventListener('click', diffExec, false);
+	      diff_reset.addEventListener('click', diffReset, false);
+	      timer_start.addEventListener('click', function() { timerStart(11*60); }, false);
+	      timer_stop.addEventListener('click', timerStop, false);
+	    
+		/**/
 		function similar(a,b) {
 		    var lengthA = a.length;
 		    var lengthB = b.length;
@@ -150,6 +215,14 @@
 		#btn-start{
 			margin-bottom:20px; 
 		}
+		.header{
+			margin: 70px auto;
+		}
+		.header-tittle{
+			font-family: 'Roboto', sans-serif;
+			font-size: 100px;
+
+		}
 	</style>
 
 </head>
@@ -159,9 +232,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<figure>
-						<img class="img-responsive" src="http://metododinamico.com.br/logo-md.jpg">
-					</figure>
+				<h1 class="header-tittle text-center">DIGITAÇÃO</h1>
 				</div>
 			</div>
 		</div>
@@ -192,18 +263,13 @@
 				</div>
 
 				<div class="col-md-6 hidden" id="restart-text">
-					<label>Vamos tentar Novamente?</label>
-					<button class="btn-primary btn-block btn">Recomeçar</button>
-				</div>
-
-				<div class="col-md-6 review hidden">
-					<button href="#HEADER" class="btn btn-block btn-primary" id="review-texts">Corrigir</button>
-
+					<input type="password" placeholder="senha" class="form-control" id="txt-password-restart">
+					<a href="#TEXTO"><button class="btn-primary btn-block btn btn-restart">Recomeçar</button></a>
 				</div>
 
 				<div class="col-md-6 password hidden">
 					<input type="password" placeholder="senha" class="form-control" id="txt-password">
-					<button class="btn btn-block btn-primary btn-password">Corrigir</button>
+					<button class="btn btn-block btn-primary btn-password" id="_corrigir">Corrigir</button>
 				</div>
 				
 				<div class="col-md-6" id="start-text">
