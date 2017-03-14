@@ -79,7 +79,10 @@
 					$(".display-result").addClass("hidden");
 					$("#review-texts").removeClass("hidden");
 					$("#restart-text").addClass("hidden");
-					document.getElementById("example-textarea-changed").removeAttribute("disabled");
+					var to_change = document.getElementById("example-textarea-changed")
+					to_change.removeAttribute("disabled");
+					to_change.value="";
+					document.getElementById("txt-password-restart").value="";
 					document.getElementById("txt-password").value="";
 				}else{
 					alert("Área restrita ao professor");
