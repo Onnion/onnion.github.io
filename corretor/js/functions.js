@@ -21,24 +21,11 @@ function similar(a,b) {
     var lengthBsplit = bsplit.length;
     var nota = 0
 
-    if (lengthAsplit > lengthBsplit) {
-        alert("Revise seu texto, existem palavas faltando");
-    }else if(lengthAsplit < lengthBsplit){
-        alert("Revise seu texto, existem palavas a mais");
-    }
     for (var i in asplit){
         for(var j in bsplit){
             if (bsplit[j] == asplit[i]) {
                 nota+=1;
                 break;
-            }
-            else{
-                for(var letraA in asplit[i]){
-                    for(var letraB in bsplit[j]){
-
-                    }
-
-                }
             }
         }
     }
@@ -46,16 +33,31 @@ function similar(a,b) {
     nota = nota*100/lengthAsplit;
     changeColor(nota);
     $("#nota").text((nota).toFixed(2));
+
+    if ((lengthAsplit > lengthBsplit) & (nota < 100.00) ) {
+        $(".erro").text("Revise seu texto, existem palavas faltando");
+        $(".erros").removeClass("hidden");
+    }else if((lengthAsplit < lengthBsplit) & (nota < 100.00) ){
+        $(".erro").text("Revise seu texto, existem palavas a mais");
+        $(".erros").removeClass("hidden");
+    }
 }
 
 function changeColor(num){
     if (num > 70) {
         $("#nota").addClass("text-success");
+        $("#nota").removeClass("text-danger");
+        $("#nota").removeClass("text-warning");
     }
     else if(num < 70){
         $("#nota").addClass("text-danger");
+        $("#nota").removeClass("text-success");
+        $("#nota").removeClass("text-warning");    
     }
     else{
         $("#nota").addClass("text-warning");
+        $("#nota").removeClass("text-success");
+        $("#nota").removeClass("text-danger");
+
     }
 }

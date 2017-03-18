@@ -3,6 +3,7 @@ var text_defaul = "";
 /* onLoad */
 $(document).ready(function(){
 	document.getElementById("exampleSelect1").removeAttribute("disabled");
+	document.getElementById("example-textarea-changed").removeAttribute("disabled");
 })
 
 /* Recomeçar */
@@ -13,6 +14,7 @@ $(document).ready(function(){
 			$(".display-result").addClass("hidden");
 			$("#review-texts").removeClass("hidden");
 			$("#restart-text").addClass("hidden");
+	        $(".erros").addClass("hidden");
 			var to_change = document.getElementById("example-textarea-changed")
 			to_change.removeAttribute("disabled");
 			to_change.value="";
