@@ -1,0 +1,30 @@
+textarea{
+	resize: none;
+}
+
+.results{
+	font-size: 80px;
+	font-weight: 900;
+}
+
+.review{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#btn-start{
+	margin-bottom:20px; 
+}
+
+.header{
+	margin: 70px auto;
+}
+
+.header-tittle{
+	font-family: 'Roboto', sans-serif;
+	font-size: 100px;
+}
+
+.containers-text{
+	margin-bottom: 20px;
+}
